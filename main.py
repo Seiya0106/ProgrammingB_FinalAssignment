@@ -23,7 +23,7 @@ while True:
         s.Playing(screen, button, button_rect, pos).button_click()
                 
     elif p.game_state == p.CLEAR:
-        s.GameClear(screen, font, large_font).clear_display(WIDTH, HEIGHT)
+        s.GameClear(screen, font, large_font, WIDTH, HEIGHT).clear_display()
 
     pg.display.update()
 

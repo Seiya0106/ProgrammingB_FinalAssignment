@@ -22,13 +22,13 @@ class Playing(Game_Condition):
             p.game_state = p.CLEAR
 
 class GameClear(Game_Condition):
-    def __init__(self, screen, font, large_font):
+    def __init__(self, screen, font, large_font, WIDTH, HEIGHT):
         super().__init__(screen)
         self.font = font
         self.large_font = large_font
-    def clear_display(self, WIDTH, HEIGHT):
         self.WIDTH = WIDTH
         self.HEIGHT = HEIGHT
+    def clear_display(self):
         clear_text = self.large_font.render("GAME CLEAR!", True, pg.Color("RED"))
         text_rect = clear_text.get_rect(center=(self.WIDTH // 2, self.HEIGHT // 2))
         self.screen.blit(clear_text, text_rect)
