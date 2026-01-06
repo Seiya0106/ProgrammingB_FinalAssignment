@@ -7,10 +7,9 @@ import stages as s
 pg.init()
 WIDTH = 800
 HEIGHT = 600
-screen = pg. display.set_mode((WIDTH, HEIGHT))
+screen = pg.display.set_mode((WIDTH, HEIGHT))
 font = pg.font.SysFont(None, 36)
 large_font = pg.font.SysFont(None, 72)
-
 
 img1 = pg.image.load("assets/button.png")
 button = pg.transform.scale(img1, (150, 120))
@@ -24,7 +23,7 @@ while True:
         s.Playing(screen, button, button_rect, pos).button_click()
                 
     elif p.game_state == p.CLEAR:
-        s.GameClear(screen).clear_display()
+        s.GameClear(screen, font, large_font).clear_display(WIDTH, HEIGHT)
 
     pg.display.update()
 
