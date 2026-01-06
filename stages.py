@@ -30,10 +30,10 @@ class GameClear(Game_Condition):
         self.WIDTH = WIDTH
         self.HEIGHT = HEIGHT
         clear_text = self.large_font.render("GAME CLEAR!", True, pg.Color("RED"))
-        text_rect = clear_text.get_rect(center=(WIDTH // 2, HEIGHT // 2))
+        text_rect = clear_text.get_rect(center=(self.WIDTH // 2, self.HEIGHT // 2))
         self.screen.blit(clear_text, text_rect)
         
         # リトライボタン（オプション）
         retry_text = self.font.render("Press R to Retry", True, pg.Color("BLUE"))
-        retry_rect = retry_text.get_rect(center=(WIDTH // 2, HEIGHT // 2 + 80))
+        retry_rect = retry_text.get_rect(center=(self.WIDTH // 2, self.HEIGHT // 2 + 80))
         self.screen.blit(retry_text, retry_rect)
