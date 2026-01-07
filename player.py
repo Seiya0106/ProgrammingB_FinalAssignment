@@ -4,9 +4,9 @@ from game_state import GameState
 # ゲーム状態の管理
 game_state_manager = GameState()
 
-# 後方互換性のため
-PLAYING = 0
-CLEAR = 1
+COUNTDOWN = 0
+PLAYING = 1
+CLEAR = 2
 game_state = game_state_manager.state
 timer = game_state_manager.timer
 

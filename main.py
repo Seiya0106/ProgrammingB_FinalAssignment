@@ -21,10 +21,11 @@ button_rect = pg.Rect(pos[0], pos[1], 150, 120)
 while True:
     screen.fill(pg.Color("WHITE"))
     
-    if p.game_state_manager.state == p.PLAYING:
+    if p.game_state_manager. state == p.COUNTDOWN: 
+        s.Countdown(screen, large_font, WIDTH, HEIGHT).display_countdown()
+    elif p.game_state_manager.state == p.PLAYING: 
         s.Playing(screen, button, button_rect, pos).button_click()
-                
-    elif p.game_state_manager.state == p.CLEAR:
+    elif p.game_state_manager.state == p. CLEAR:
         s.GameClear(screen, font, large_font, WIDTH, HEIGHT).clear_display()
 
     pg.display.update()

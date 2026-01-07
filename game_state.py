@@ -1,16 +1,19 @@
 import pygame as pg
 
-PLAYING = 0
-CLEAR = 1
+COUNTDOWN = 0
+PLAYING = 1
+CLEAR = 2
 
 class GameState:
     def __init__(self):
-        self.state = PLAYING
+        self.state = COUNTDOWN
         self.timer = Timer()
+        self.countdown_start_time = None
     
     def reset(self):
-        self.state = PLAYING
+        self.state = COUNTDOWN
         self.timer.reset()
+        self.countdown_start_time = None
 
 class Timer:
     def __init__(self):
