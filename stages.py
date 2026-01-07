@@ -50,7 +50,7 @@ class Playing(Game_Condition):
 
         # 開始した時間を記録
         if not p.timer.is_running:
-            p.timer. start()
+            p.timer.start()
 
         self.screen.blit(self.button, self.pos)
         
@@ -77,7 +77,7 @@ class GameClear(Game_Condition):
         time_rect = time_text.get_rect(center=(self. WIDTH // 2, self.HEIGHT // 2 + 40))
         self.screen.blit(time_text, time_rect)
         
-        # リトライボタン（オプション）
+        # リトライテキストを表示
         retry_text = self.font.render("Press R to Retry", True, pg.Color("BLUE"))
         retry_rect = retry_text.get_rect(center=(self.WIDTH // 2, self.HEIGHT // 2 + 80))
         self.screen.blit(retry_text, retry_rect)
