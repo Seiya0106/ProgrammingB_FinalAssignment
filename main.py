@@ -36,5 +36,7 @@ while True:
         if event.type == pg.KEYDOWN: 
             if event.key == pg.K_r and p.game_state == p.CLEAR: 
                 p.game_state = p.PLAYING
+                p.start_time = None  # タイマーをリセット
+                p.elapsed_time = 0
                 pos = (random.randint(0, WIDTH - 150), random.randint(0, HEIGHT - 120))
                 button_rect = pg.Rect(pos[0], pos[1], 150, 120)

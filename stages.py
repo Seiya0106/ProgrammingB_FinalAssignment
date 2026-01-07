@@ -15,10 +15,16 @@ class Playing(Game_Condition):
         mouse = pg.mouse.get_pressed()
         mouse_pos = pg.mouse.get_pos()
 
+        # 開始した時間を記録
+        if p.start_time is None:
+            p.start_time = pg.time.get_ticks()
+
         self.screen.blit(self.button, self.pos)
         
         # ボタンクリックでクリア画面に遷移
         if p.clicked(self.button_rect, mouse_pos, mouse):
+            # 経過時間を計算（ミリ秒から秒に変換）
+            p.elapsed_time = (pg. time.get_ticks() - p.start_time) / 1000.0
             p.game_state = p.CLEAR
 
 class GameClear(Game_Condition):
@@ -32,6 +38,11 @@ class GameClear(Game_Condition):
         clear_text = self.large_font.render("GAME CLEAR!", True, pg.Color("RED"))
         text_rect = clear_text.get_rect(center=(self.WIDTH // 2, self.HEIGHT // 2))
         self.screen.blit(clear_text, text_rect)
+
+        # クリアタイムを表示
+        time_text = self.font.render(f"Clear Time: {p.elapsed_time:.3f} sec", True, pg.Color("GREEN"))
+        time_rect = time_text.get_rect(center=(self.WIDTH // 2, self.HEIGHT // 2 + 40))
+        self.screen.blit(time_text, time_rect)
         
         # リトライボタン（オプション）
         retry_text = self.font.render("Press R to Retry", True, pg.Color("BLUE"))
