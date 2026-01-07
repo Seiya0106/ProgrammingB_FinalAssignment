@@ -1,8 +1,6 @@
 import pygame as pg
 import player as p
 
-# Timeクラスは削除（game_state. pyのTimerクラスに統合）
-
 class Game_Condition:
     def __init__(self, screen):
         self.screen = screen

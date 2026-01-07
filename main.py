@@ -9,10 +9,10 @@ pg.init()
 WIDTH = 800
 HEIGHT = 600
 screen = pg.display.set_mode((WIDTH, HEIGHT))
+clock = pg.time.Clock()
 
 font = pg.font.SysFont(None, 36)
 large_font = pg.font.SysFont(None, 72)
-
 img1 = pg.image.load("assets/button.png")
 button = pg.transform.scale(img1, (150, 120))
 pos = (random.randint(0, WIDTH - 150), random.randint(0, HEIGHT - 120))
@@ -29,6 +29,7 @@ while True:
         s.GameClear(screen, font, large_font, WIDTH, HEIGHT).clear_display()
 
     pg.display.update()
+    clock.tick(60)
 
     # イベント処理
     for event in pg.event.get():
